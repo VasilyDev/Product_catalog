@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Editing information about the product</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5 mb-5">
+    <h1>Editing information about the product</h1>
+    <div th:each="el : ${product}">
+        <form method="post">
+            <input type="text" th:value="${el.name}" name="name" placeholder="Add a new name" class="form-control"><br>
+            <textarea name="description" placeholder="Add a description" class="form-control"
+            th:text="${el.description}"/><br>
+            <button type="submit" class="btn btn-success">Update</button>
+        </form>
+    </div>
+
+    <div th:insert="blocks/footer :: footer"></div>
+
+</body>
+</html>
